@@ -10,7 +10,7 @@ public class ArticleDao {
         this.em = em;
     }
 
-    public void creer(Evenement e) {
+    public void creer(Article e) {
         this.em.persist(e);
     }
 
