@@ -7,7 +7,7 @@ public class Contrat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_personne;
+    private int id_contrat;
 
     @Basic
     private float marge;

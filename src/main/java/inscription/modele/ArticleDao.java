@@ -14,7 +14,7 @@ public class ArticleDao {
         this.em.persist(e);
     }
 
-    public Article getArticle(String code) {
+    public Article getArticle(int code) {
         return em.createQuery("select e from Article e where e.id_article = :code", Article.class)
                 .setParameter("code", code)
                 .getSingleResult();

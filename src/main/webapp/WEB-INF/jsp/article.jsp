@@ -15,7 +15,7 @@
   <header><%@include file="menu.jsp"%></header>
 
 
-  <c:out value="${param['email']}" />
+  <c:out value="${article.nom_article}" />
 
   <div class="container">
       <div class="col-md-12">

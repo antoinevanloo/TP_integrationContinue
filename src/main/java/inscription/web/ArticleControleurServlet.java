@@ -7,6 +7,7 @@
     import javax.persistence.Persistence;
     import javax.servlet.RequestDispatcher;
     import javax.servlet.ServletException;
+    import javax.servlet.ServletOutputStream;
     import javax.servlet.annotation.WebServlet;
     import javax.servlet.http.HttpServlet;
     import javax.servlet.http.HttpServletRequest;
@@ -30,7 +31,11 @@ public class ArticleControleurServlet extends HttpServlet{
                 ArticleDao aDAO = new ArticleDao(em);
 
                 em.getTransaction().begin();
-                unArticle = aDAO.getArticle("1");
+                unArticle = aDAO.getArticle(1);
+                System.out.println(unArticle.getNom_article());
+                System.out.println(unArticle.getNom_article());
+                System.out.println(unArticle.getNom_article());
+                System.out.println(unArticle.getNom_article());
                 em.getTransaction().commit();
             } finally {
                 em.close();
@@ -38,6 +43,7 @@ public class ArticleControleurServlet extends HttpServlet{
         } finally {
             emf.close();
         }
+        req.setAttribute("article", unArticle);
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/article.jsp");
         rd.forward(req, resp);
     }
