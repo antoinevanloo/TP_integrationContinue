@@ -27,8 +27,4 @@ public class Utilisateur {
 //    @JoinColumn(name = "type_utilisateur_id")
 //    private Type_utilisateur type_utilisateur;
 
-    @OneToMany(cascade = { CascadeType.ALL },mappedBy = "reservation")
-   private List<Personne> personnes = new ArrayList<Personne>();
-
-
 }

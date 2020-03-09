@@ -1,6 +1,7 @@
 package inscription.modele;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class ArticleDao {
 
@@ -14,15 +15,8 @@ public class ArticleDao {
         this.em.persist(e);
     }
 
-    public Article getArticle(int code) {
-        return em.createQuery("select e from Article e where e.id_article = :code", Article.class)
-                .setParameter("code", code)
-                .getSingleResult();
-    }
-
-    public Long getNbPersonnes(String code){
-        return em.createQuery("select count(p) from Personne p join p.reservation r where r.evenement.code_evenement = :code", Long.class)
-                .setParameter("code",code)
-                .getSingleResult();
+    public List<Article> getArticles() {
+        return em.createQuery("select a from Article a", Article.class)
+                .getResultList();
     }
 }

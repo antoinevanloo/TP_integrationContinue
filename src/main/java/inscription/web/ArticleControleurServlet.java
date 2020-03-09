@@ -14,8 +14,9 @@
     import javax.servlet.http.HttpServletResponse;
     import java.io.IOException;
     import java.text.ParseException;
+    import java.util.List;
 
-    @WebServlet("/article")
+    @WebServlet("/articles")
 public class ArticleControleurServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
@@ -24,18 +25,14 @@ public class ArticleControleurServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("melinda");
-        Article unArticle = null;
+        List<Article> articles = null;
         try {
             EntityManager em = emf.createEntityManager();
             try {
                 ArticleDao aDAO = new ArticleDao(em);
 
                 em.getTransaction().begin();
-                unArticle = aDAO.getArticle(1);
-                System.out.println(unArticle.getNom_article());
-                System.out.println(unArticle.getNom_article());
-                System.out.println(unArticle.getNom_article());
-                System.out.println(unArticle.getNom_article());
+                articles = aDAO.getArticles();
                 em.getTransaction().commit();
             } finally {
                 em.close();
@@ -43,8 +40,8 @@ public class ArticleControleurServlet extends HttpServlet{
         } finally {
             emf.close();
         }
-        req.setAttribute("article", unArticle);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/article.jsp");
+        req.setAttribute("paramValues", articles);
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/articles.jsp");
         rd.forward(req, resp);
     }
 
