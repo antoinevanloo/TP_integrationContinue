@@ -25,7 +25,7 @@ CONSTRAINT pk_id_articlePRIMARY KEY (id_article));
 
  INSERT INTO `type_utilisateur` (`id_utilisateur`, `role`) 
  VALUES ('1', 'admin'), ('2', 'auteur');
- 
+
 INSERT INTO utilisateur (`id_user`,mdp,nom_client,prenom_client,`contrat_id`,`type_utilisateur_id`) VALUES(1,"motdepasse","VAN LOO", "Antoine",1,1);
 INSERT INTO utilisateur(`id_user`,mdp,nom_client,prenom_client,`contrat_id`,`type_utilisateur_id`) VALUES(2,"motdepasse","LORIAUX", "Clément",2,2);
 
