@@ -20,7 +20,7 @@ insert into contrat(id_contrat,marge) VALUES (1,2.5);
 insert into contrat(id_contrat,marge) VALUES (2,0.5);
 
 
-CREATE TABLE article(id_article INT NOT NULL AUTO_INCREMENT,nom_article VARCHAR(250) NOT NULL,cout_fabrication FLOAT(10,7) NOT NULL,CONSTRAINT pk_id_articlePRIMARY KEY (id_article));
+CREATE TABLE article(id_article INT NOT NULL AUTO_INCREMENT,nom_article VARCHAR(250) NOT NULL,cout_fabrication FLOAT(10,7) NOT NULL,CONSTRAINT pk_id_article PRIMARY KEY (id_article));
 
  INSERT INTO `type_utilisateur` (`id_utilisateur`, `role`) 
  VALUES ('1', 'admin'), ('2', 'auteur');
@@ -33,6 +33,6 @@ INSERT INTO client(id_contrat,marge) VALUES(1,5);INSERT INTO client(id_contrat,m
 INSERT INTO client(id_contrat,marge) VALUES(3,50);
 
 
-CREATE TABLE article(id_article INT NOT NULL AUTO_INCREMENT,nom_article VARCHAR(250) NOT NULL,cout_fabrication FLOAT(10,7) NOT NULL,CONSTRAINT pk_id_articlePRIMARY primary KEY (id_article));
+CREATE TABLE article(id_article INT NOT NULL AUTO_INCREMENT,nom_article VARCHAR(250) NOT NULL,cout_fabrication FLOAT(10,7) NOT NULL,CONSTRAINT pk_id_article PRIMARY  KEY (id_article));
 
 INSERT INTO `article` (`id_article`, `nom_article`, `cout_fabrication`) VALUES ('1', 'pouette', '500'), ('2', 'poux', '2.5');
